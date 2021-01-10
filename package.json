@@ -11,7 +11,10 @@
     "string",
     "upper",
     "case",
-    "text"
+    "text",
+    "nan",
+    "native",
+    "addon"
   ],
   "author": "Grigorios Ntousakis",
   "license": "MIT",
