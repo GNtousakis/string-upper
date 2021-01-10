@@ -7,14 +7,14 @@ Change string to upper case. Build with __nan__.
 ```sh
 
 # With npm 
-npm i string-upper-case
+npm i string-upper 
 
 ```
 
 ## How to use 
 ```js 
 
-const upperCase = require('string-upper-case');
+const upperCase = require('string-upper');
 
 upperCase('pizza') // ~> PIZZA
 upperCase('hello world') // ~> HELLO WORLD
