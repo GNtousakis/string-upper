@@ -1,0 +1,1 @@
+cmd_Release/UpperCaseString.node := ln -f "Release/obj.target/UpperCaseString.node" "Release/UpperCaseString.node" 2>/dev/null || (rm -rf "Release/UpperCaseString.node" && cp -af "Release/obj.target/UpperCaseString.node" "Release/UpperCaseString.node")
