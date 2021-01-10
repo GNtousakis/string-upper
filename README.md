@@ -1,4 +1,4 @@
-# string-upper-case
+# string-upper
 
 Change string to upper case. Build with __nan__.
 

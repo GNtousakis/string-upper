@@ -1,5 +1,5 @@
 {
-  "name": "string-upper-case",
+  "name": "string-upper",
   "version": "1.0.0",
   "description": "String to upper case",
   "main": "./src/index.js",
