@@ -13,19 +13,19 @@ using v8::Handle;
 /**
 * simple function to be export from this c++ code
 **/
-void UpperString(const FunctionCallbackInfo<Value>& args){
-  Isolate* isolate = args.GetIsolate();
+NAN_METHOD (UpperString) {
+  Isolate* isolate = info.GetIsolate();
   
   // Check the number of arguments passed.
-  if (args.Length() == 0 || !args[0]->IsString()) {
+  if (info.Length() == 0 || !info[0]->IsString()) {
     // Throw an Error that is passed back to JavaScript
     isolate->ThrowException(Exception::TypeError(
         String::NewFromUtf8(isolate, "You need to pass a string")));
     return;
   }
 
-  if (args[0]->IsString()) {
-    String::Utf8Value tmp(args[0]->ToString());
+  if (info[0]->IsString()) {
+    String::Utf8Value tmp(info[0]->ToString());
     // Change string to c++ type
     std::string str = std::string(*tmp); 
 
@@ -36,13 +36,14 @@ void UpperString(const FunctionCallbackInfo<Value>& args){
     }
     // Revert to v8 string and return 
     v8::Local<v8::String> v8String = v8::String::NewFromUtf8(isolate, str.c_str(), v8::String::kNormalString);
-    args.GetReturnValue().Set(v8String);
+    info.GetReturnValue().Set(v8String);
   }
 
 }
 
-void Init(Handle<Object> exports) {
-  NODE_SET_METHOD(exports, "UpperString", UpperString);//NODE_SET_MET  HOD to export
+NAN_MODULE_INIT(Init) 
+{
+  NAN_EXPORT(target, UpperString);
 }
 
 //to define entry point,first argument must match with target name in binding.gyp
